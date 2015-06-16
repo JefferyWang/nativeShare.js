@@ -1,7 +1,7 @@
 nativeShare
 ======
 
-nativeShare是一个可以通过javascript直接调用原生分享的工具.[demo](http://blog.wangjunfeng.com/demo/native_share/)
+nativeShare是一个可以通过javascript直接调用原生分享的工具.  [demo](http://blog.wangjunfeng.com/demo/native_share/)
 
 我们知道现在我们无法直接通过js直接跳转到微信和QQ等软件进行分享,但是现在像UC浏览器和QQ浏览器这样的主流浏览器自带一个分享工具,而他们也有自己定义的js接口.我们通过调用浏览器的接口去调用浏览器的分享,从而实现原生分享功能.是不是很酷呢?
 
@@ -17,6 +17,27 @@ nativeShare是一个可以通过javascript直接调用原生分享的工具.[dem
 --------------------
 
 ![Demo](http://qrapi.cli.im/qr?data=http%253A%252F%252Fblog.wangjunfeng.com%252Fdemo%252Fnative_share%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=280&kid=cliim&key=95f6dfd09d364c85a17da72a307b24c5)
+
+使用方法
+--------------------
+
+``` html
+<link rel="stylesheet" href="nativeShare.css"/>
+```
+
+``` javascript
+<script>
+    var config = {
+        url:'http://blog.wangjunfeng.com',// 分享的网页链接
+        title:'王俊锋的个人博客',// 标题
+        desc:'王俊锋的个人博客',// 描述
+        img:'http://www.wangjunfeng.com/img/face.jpg',// 图片
+        img_title:'王俊锋的个人博客',// 图片标题
+        from:'王俊锋的博客' // 来源
+    };
+    var share_obj = new nativeShare('nativeShare',config);
+</script>
+```
 
 截图
 --------------------

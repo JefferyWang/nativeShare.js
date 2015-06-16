@@ -1,6 +1,7 @@
 /**
  * Created by Jeffery Wang.
  * Create Time: 2015-06-16 19:52
+ * Author Link: http://blog.wangjunfeng.com
  */
 var nativeShare = function (elementNode, config) {
     if (!document.getElementById(elementNode)) {
@@ -146,7 +147,7 @@ var nativeShare = function (elementNode, config) {
         if (isqqBrowser || isucBrowser) {
             this.html();
         } else {
-            document.write('目前该分享插件仅支持UC浏览器和QQ浏览器');
+            document.write('目前该分享插件仅支持手机UC浏览器和QQ浏览器');
         }
     };
 
