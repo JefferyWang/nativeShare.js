@@ -13,6 +13,10 @@ nativeShare是一个可以通过javascript直接调用原生分享的工具.  [d
 
 * 注意:目前仅支持手机UC浏览器和QQ浏览器
 
+github项目地址:  [https://github.com/JefferyWang/nativeShare.js](https://github.com/JefferyWang/nativeShare.js)
+
+Git@OSC项目地址:  [http://git.oschina.net/wangjunfeng/nativeShare.js](http://git.oschina.net/wangjunfeng/nativeShare.js)
+
 扫描二维码访问Demo
 --------------------
 
