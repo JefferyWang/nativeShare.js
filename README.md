@@ -21,9 +21,19 @@ nativeShare是一个可以通过javascript直接调用原生分享的工具.  [d
 使用方法
 --------------------
 
+* 引入CSS文件
+
 ``` html
 <link rel="stylesheet" href="nativeShare.css"/>
 ```
+
+* 在需要放分享的地方插入以下代码
+
+``` html
+<div id="nativeShare"></div>
+```
+
+* 添加配置,并实例化
 
 ``` javascript
 <script>
