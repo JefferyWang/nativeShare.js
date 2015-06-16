@@ -13,6 +13,11 @@ nativeShare是一个可以通过javascript直接调用原生分享的工具.[dem
 
 * 注意:目前仅支持手机UC浏览器和QQ浏览器
 
+扫描二维码访问Demo
+--------------------
+
+![Demo](http://qrapi.cli.im/qr?data=http%253A%252F%252Fblog.wangjunfeng.com%252Fdemo%252Fnative_share%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=280&kid=cliim&key=95f6dfd09d364c85a17da72a307b24c5)
+
 截图
 --------------------
 
