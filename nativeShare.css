@@ -1,0 +1,57 @@
+#nativeShare {
+    font-size: 13px;
+}
+
+#nativeShare .label {
+    font-size: 20px;
+}
+
+#nativeShare .list {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#nativeShare .list span {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#nativeShare .list span i {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+#nativeShare .weibo i {
+    background-image: url('./icon/weibo.png');
+    background-size: cover;
+}
+
+#nativeShare .weixin i {
+    background-image: url('./icon/weixin_friend.png');
+    background-size: cover;
+}
+
+#nativeShare .weixin_timeline i {
+    background-image: url('./icon/weixin.png');
+    background-size: cover;
+}
+
+#nativeShare .qq i {
+    background-image: url('./icon/qq.png');
+    background-size: cover;
+}
+
+#nativeShare .qzone i {
+    background-image: url('./icon/qqzone.png');
+    background-size: cover;
+}
+
+#nativeShare .more i {
+    background-image: url('./icon/more.png');
+    background-size: cover;
+}

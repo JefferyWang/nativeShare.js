@@ -33,11 +33,11 @@ var nativeShare = function (elementNode, config) {
     this.img_title = config.img_title || document.title || '';
     this.from = config.from || window.location.host || '';
     this.ucAppList = {
-        sinaWeibo: ['kSinaWeibo', 11],
-        weixin: ['kWeixin', 1],
-        weixinFriend: ['kWeixinFriend', '8'],
-        QQ: ['kQQ', '4'],
-        QZone: ['kQZone', '3']
+        sinaWeibo: ['kSinaWeibo', 11, '新浪微博'],
+        weixin: ['kWeixin', 1, '微信好友'],
+        weixinFriend: ['kWeixinFriend', '8', '微信朋友圈'],
+        QQ: ['kQQ', '4', 'QQ好友'],
+        QZone: ['kQZone', '3', 'QQ空间']
     };
 
     this.share = function (to_app) {
@@ -78,6 +78,20 @@ var nativeShare = function (elementNode, config) {
             } else {
             }
         }
+    };
+
+    this.html = function() {
+        var position = document.getElementById(this.elementNode);
+        var html = '<div class="label">分享到</div>'+
+            '<div class="list clearfix">'+
+            '<span data-app="sinaWeibo" class="nativeShare weibo"><i></i>新浪微博</span>'+
+            '<span data-app="weixin" class="nativeShare weixin"><i></i>微信好友</span>'+
+            '<span data-app="weixinFriend" class="nativeShare weixin_timeline"><i></i>微信朋友圈</span>'+
+            '<span data-app="QQ" class="nativeShare qq"><i></i>QQ好友</span>'+
+            '<span data-app="QZone" class="nativeShare qzone"><i></i>QQ空间</span>'+
+            '<span data-app="" class="nativeShare more"><i></i>更多</span>'+
+            '</div>';
+        position.innerHTML = html;
     };
 
     this.isloadqqApi = function () {
@@ -129,9 +143,22 @@ var nativeShare = function (elementNode, config) {
             }
         }
         this.isloadqqApi();
+        if (isqqBrowser || isucBrowser) {
+            this.html();
+        } else {
+            document.write('目前该分享插件仅支持UC浏览器和QQ浏览器');
+        }
     };
 
     this.init();
+
+    var share = this;
+    var items = document.getElementsByClassName('nativeShare');
+    for (var i=0;i<items.length;i++) {
+        items[i].onclick = function(){
+            share.share(this.getAttribute('data-app'));
+        }
+    }
 
     return this;
 };
