@@ -34,20 +34,21 @@ var nativeShare = function (elementNode, config) {
     this.img_title = config.img_title || document.title || '';
     this.from = config.from || window.location.host || '';
     this.ucAppList = {
-        sinaWeibo: ['kSinaWeibo', 11, '新浪微博'],
-        weixin: ['kWeixin', 1, '微信好友'],
-        weixinFriend: ['kWeixinFriend', '8', '微信朋友圈'],
-        QQ: ['kQQ', '4', 'QQ好友'],
-        QZone: ['kQZone', '3', 'QQ空间']
+        sinaWeibo: ['kSinaWeibo', 11, '新浪微博','SinaWeibo'],
+        weixin: ['kWeixin', 1, '微信好友','WechatFriends'],
+        weixinFriend: ['kWeixinFriend', '8', '微信朋友圈','WechatTimeline'],
+        QQ: ['kQQ', '4', 'QQ好友','QQ'],
+        QZone: ['kQZone', '3', 'QQ空间','QZone']
     };
 
     this.share = function (to_app) {
         var title = this.title, url = this.url, desc = this.desc, img = this.img, img_title = this.img_title, from = this.from;
         if (isucBrowser) {
-            to_app = to_app == '' ? '' : this.ucAppList[to_app][0];
-            if (typeof(ucweb) != "undefined") {
+             if (typeof(ucweb) != "undefined") { 
+            	to_app = to_app == '' ? '' : this.ucAppList[to_app][3];
                 ucweb.startRequest("shell.page_share", [title, title, url, to_app, "", "@" + from, ""])
             } else {
+            	to_app = to_app == '' ? '' : this.ucAppList[to_app][0];
                 if (typeof(ucbrowser) != "undefined") {
                     ucbrowser.web_share(title, title, url, to_app, "", "@" + from, '')
                 } else {
