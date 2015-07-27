@@ -34,17 +34,23 @@ var nativeShare = function (elementNode, config) {
     this.img_title = config.img_title || document.title || '';
     this.from = config.from || window.location.host || '';
     this.ucAppList = {
-        sinaWeibo: ['kSinaWeibo', 11, '新浪微博'],
-        weixin: ['kWeixin', 1, '微信好友'],
-        weixinFriend: ['kWeixinFriend', '8', '微信朋友圈'],
-        QQ: ['kQQ', '4', 'QQ好友'],
-        QZone: ['kQZone', '3', 'QQ空间']
+        sinaWeibo: ['kSinaWeibo', 'SinaWeibo', 11, '新浪微博'],
+        weixin: ['kWeixin', 'WechatFriends', 1, '微信好友'],
+        weixinFriend: ['kWeixinFriend', 'WechatTimeline', '8', '微信朋友圈'],
+        QQ: ['kQQ', 'QQ', '4', 'QQ好友'],
+        QZone: ['kQZone', 'QZone', '3', 'QQ空间']
     };
 
     this.share = function (to_app) {
         var title = this.title, url = this.url, desc = this.desc, img = this.img, img_title = this.img_title, from = this.from;
         if (isucBrowser) {
-            to_app = to_app == '' ? '' : this.ucAppList[to_app][0];
+            to_app = to_app == '' ? '' : (platform_os == 'iPhone' ? this.ucAppList[to_app][0] : this.ucAppList[to_app][1]);
+            if (to_app == 'QZone') {
+                B = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url="+img+"&title="+title+"&description="+desc+"&url="+url+"&app_name="+from;
+                k = document.createElement("div"), k.style.visibility = "hidden", k.innerHTML = '<iframe src="' + B + '" scrolling="no" width="1" height="1"></iframe>', document.body.appendChild(k), setTimeout(function () {
+                    k && k.parentNode && k.parentNode.removeChild(k)
+                }, 5E3);
+            }
             if (typeof(ucweb) != "undefined") {
                 ucweb.startRequest("shell.page_share", [title, title, url, to_app, "", "@" + from, ""])
             } else {
@@ -55,7 +61,7 @@ var nativeShare = function (elementNode, config) {
             }
         } else {
             if (isqqBrowser && !isWeixin) {
-                to_app = to_app == '' ? '' : this.ucAppList[to_app][1];
+                to_app = to_app == '' ? '' : this.ucAppList[to_app][2];
                 var ah = {
                     url: url,
                     title: title,
