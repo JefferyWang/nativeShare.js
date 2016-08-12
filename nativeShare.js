@@ -9,8 +9,8 @@ var nativeShare = function (elementNode, config) {
     }
 
     var qApiSrc = {
-        lower: "http://3gimg.qq.com/html5/js/qb.js",
-        higher: "http://jsapi.qq.com/get?api=app.share"
+        lower: "//3gimg.qq.com/html5/js/qb.js",
+        higher: "//jsapi.qq.com/get?api=app.share"
     };
     var bLevel = {
         qq: {forbid: 0, lower: 1, higher: 2},
