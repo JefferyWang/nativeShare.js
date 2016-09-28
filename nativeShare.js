@@ -71,7 +71,7 @@ var nativeShare = function (elementNode, config) {
                     to_app: to_app,//微信好友1,腾讯微博2,QQ空间3,QQ好友4,生成二维码7,微信朋友圈8,啾啾分享9,复制网址10,分享到微博11,创意分享13
                     cus_txt: "请输入此时此刻想要分享的内容"
                 };
-                ah = to_app == '' ? '' : ah;
+                ah = to_app == '' ? {} : ah;
                 if (typeof(browser) != "undefined") {
                     if (typeof(browser.app) != "undefined" && isqqBrowser == bLevel.qq.higher) {
                         browser.app.share(ah)
